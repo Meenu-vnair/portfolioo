@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | Meenu V Nair</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    color:white;
+    line-height:1.6;
+}
+
+/* Navbar */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 10%;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(10px);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#38bdf8;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+nav a{
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#38bdf8;
+}
+
+/* Hero Section */
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 10%;
+}
+
+.hero-text{
+    max-width:600px;
+}
+
+.hero-text h1{
+    font-size:60px;
+    margin-bottom:10px;
+}
+
+.hero-text span{
+    color:#38bdf8;
+}
+
+.hero-text h2{
+    color:#cbd5e1;
+    margin-bottom:20px;
+}
+
+.hero-text p{
+    color:#94a3b8;
+    margin-bottom:30px;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 28px;
+    background:#38bdf8;
+    color:#0f172a;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:600;
+    margin-right:15px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(56,189,248,.5);
+}
+
+.hero-img img{
+    width:320px;
+    border-radius:50%;
+    border:5px solid #38bdf8;
+    box-shadow:0 0 40px rgba(56,189,248,.5);
+}
+
+/* Sections */
+section{
+    padding:80px 10%;
+}
+
+.title{
+    text-align:center;
+    font-size:40px;
+    color:#38bdf8;
+    margin-bottom:50px;
+}
+
+/* About */
+.about{
+    background:rgba(255,255,255,.05);
+    padding:40px;
+    border-radius:20px;
+}
+
+/* Skills */
+.skills-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+}
+
+.skill{
+    background:#1e293b;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    transition:0.3s;
+}
+
+.skill:hover{
+    background:#38bdf8;
+    color:#0f172a;
+    transform:translateY(-8px);
+}
+
+/* Projects */
+.project-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.project{
+    background:rgba(255,255,255,.05);
+    padding:25px;
+    border-radius:20px;
+    transition:0.3s;
+}
+
+.project:hover{
+    transform:translateY(-10px);
+    box-shadow:0 10px 30px rgba(56,189,248,.3);
+}
+
+/* Certifications */
+.certification-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+}
+
+.certification{
+    background:rgba(255,255,255,.05);
+    padding:25px;
+    border-radius:20px;
+    transition:0.3s;
+}
+
+.certification:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 25px rgba(56,189,248,.3);
+}
+
+/* Contact */
+.contact{
+    text-align:center;
+}
+
+.contact p{
+    margin:15px 0;
+    color:#cbd5e1;
+}
+
+footer{
+    background:#020617;
+    text-align:center;
+    padding:20px;
+    color:#94a3b8;
+}
+.project-btn{
+    display:block;
+    text-decoration:none;
+    color:white;
+    background:rgba(255,255,255,.05);
+    padding:25px;
+    border-radius:20px;
+    transition:.3s;
+    cursor:pointer;
+}
+
+.project-btn:hover{
+    transform:translateY(-10px);
+    box-shadow:0 10px 30px rgba(56,189,248,.3);
+    background:#38bdf8;
+    color:#0f172a;
+}
+.contact a{
+    color:#38bdf8;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.contact a:hover{
+    text-decoration:underline;
+}
+
+/* Mobile */
+@media(max-width:900px){
+
+    nav{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .hero{
+        flex-direction:column-reverse;
+        text-align:center;
+        gap:40px;
+        padding-top:60px;
+    }
+
+    .hero-text h1{
+        font-size:45px;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+    <div class="logo">Meenu V Nair</div>
+
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+
+    <div class="hero-text">
+        <h1>Hello, I'm <span>Meenu V Nair</span></h1>
+
+        <h2>Software Engineer | Programmer | Data Analyst</h2>
+
+        <p>
+            Passionate Full Stack Developer skilled in Python, Java, Django,
+            C, MySQL, and web technologies. I enjoy building scalable
+            applications and creating impactful software solutions.
+        </p>
+
+        <a href="https://drive.google.com/file/d/1nMXTK6ZvA4hheW-nDJaVZQdEvowsliIR/view?usp=drive_link" class="btn" download>
+            Download CV
+        </a>
+
+        <a href="#contact" class="btn">
+            Hire Me
+        </a>
+
+    </div>
+
+    <div class="hero-img">
+        <img src="https://img.freepik.com/premium-photo/beautiful-girl-with-laptop-cafe-3d-rendering_1057-41429.jpg" alt="Profile Photo">
+    </div>
+
+</section>
+
+<!-- About -->
+<section id="about">
+
+    <h2 class="title">About Me</h2>
+
+    <div class="about">
+
+        <p>
+            I'm a Full Stack Developer skilled in Python, Java, C, Django,
+            and MySQL. I enjoy building secure and scalable web applications
+            and have experience developing management systems and e-learning
+            platforms. Passionate about software development and continuous
+            learning, I strive to create impactful and user-friendly solutions.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- Skills -->
+<section id="skills">
+
+    <h2 class="title">Skills</h2>
+
+    <div class="skills-container">
+
+        <div class="skill">Python</div>
+        <div class="skill">Java</div>
+        <div class="skill">Django</div>
+        <div class="skill">C</div>
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">MySQL</div>
+        <div class="skill">AWS</div>
+        <div class="skill">AI & ML</div>
+
+    </div>
+
+</section>
+
+<!-- Projects -->
+<section id="projects">
+
+    <h2 class="title">Projects</h2>
+
+    <div class="project-container">
+
+    <a href="#" class="project-btn">
+        <h3>College Management System</h3>
+        <p>
+            Developed a full-stack web application with role-based access,
+            student management, attendance tracking, and REST APIs.
+        </p>
+    </a>
+
+    <a href="#" class="project-btn">
+        <h3>E-Learning System</h3>
+        <p>
+            Developed an interactive platform for course management,
+            student enrollment, assessments, and progress tracking.
+        </p>
+    </a>
+
+    <a href="#" class="project-btn">
+        <h3>Event Management System</h3>
+        <p>
+            Created a Django-based application for event registration,
+            scheduling, and communication.
+        </p>
+    </a>
+
+</div>
+
+</section>
+
+<!-- Certifications -->
+<!-- Certifications -->
+<section id="certifications">
+
+    <h2 class="title">Certifications</h2>
+
+    <div class="certification-container">
+
+        <div class="certification">
+            <h3>Tata GenAI-Powered Data Analytics Job Simulation</h3>
+            <p><strong>Forage</strong></p>
+            <p>
+                Conducted exploratory data analysis using AI-powered tools,
+                proposed a no-code predictive modeling framework for customer
+                risk assessment, and applied Generative AI concepts for
+                data-driven decision making.
+            </p>
+        </div>
+
+        <div class="certification">
+            <h3>Cyber Security Cadet – Ethical Hacking</h3>
+            <p><strong>Udemy</strong></p>
+            <p>
+                Gained knowledge of ethical hacking principles, cybersecurity
+                fundamentals, vulnerability assessment, and security best practices.
+            </p>
+        </div>
+
+        <div class="certification">
+            <h3>Google Crash Course on Python</h3>
+            <p><strong>Coursera</strong></p>
+            <p>
+                Learned Python programming fundamentals, automation concepts,
+                data structures, and problem-solving techniques.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Contact -->
+<section id="contact">
+
+    <h2 class="title">Contact Me</h2>
+
+    <div class="contact">
+
+        <p>
+            📧
+            <a href="mailto:yourmail@gmail.com">
+                yourmail@gmail.com
+            </a>
+        </p>
+
+        <p>📍 Kottayam, Kerala, India</p>
+
+        <p>
+            🔗
+            <a href="https://www.linkedin.com/in/your-profile"
+               target="_blank">
+                LinkedIn Profile
+            </a>
+        </p>
+
+        <p>
+            💻
+            <a href="https://github.com/yourusername"
+               target="_blank">
+                GitHub Profile
+            </a>
+        </p>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 Meenu V Nair | All Rights Reserved
+</footer>
+
+</body>
+</html>
