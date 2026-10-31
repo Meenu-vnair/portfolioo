@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Meenu V Nair — Software Engineer building backend systems and practical web applications with .NET, C#, and Python.">
+  <title>Meenu V Nair — Software Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f5f2eb;
+      --ink: #171816;
+      --muted: #686a63;
+      --line: #d8d5cc;
+      --orange: #ed5b32;
+      --white: #fffefa;
+      --green: #c9d7c2;
+      --serif: Georgia, "Times New Roman", serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body { background: var(--paper); color: var(--ink); font-family: "DM Sans", sans-serif; line-height: 1.65; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .wrap { width: min(1160px, 88%); margin: auto; }
+    .mono, .eyebrow, .nav-label, .project-index, .meta, .tag, .footer-note {
+      font-family: "DM Mono", monospace; text-transform: uppercase; letter-spacing: .09em;
+    }
+    .mono, .eyebrow { font-size: 11px; }
+    .topbar { position: sticky; top: 0; z-index: 50; background: rgba(245,242,235,.94); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { font-family: Manrope, sans-serif; font-size: 19px; font-weight: 800; letter-spacing: -.06em; }
+    .brand span { color: var(--orange); }
+    .navlinks { display: flex; align-items: center; gap: 30px; list-style: none; }
+    .navlinks a { font-size: 13px; color: var(--muted); transition: color .2s; }
+    .navlinks a:hover { color: var(--orange); }
+    .nav-cta { border: 1px solid var(--ink); padding: 10px 16px; font-size: 12px; font-weight: 700; transition: .2s; }
+    .nav-cta:hover { background: var(--ink); color: var(--paper); }
+    .menu { display: none; border: 0; background: none; font-size: 25px; cursor: pointer; }
+    .hero { padding: 100px 0 82px; border-bottom: 1px solid var(--line); overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 70px; align-items: end; }
+    .eyebrow { display: flex; align-items: center; gap: 12px; color: var(--orange); font-weight: 500; }
+    .eyebrow:before { content: ""; width: 30px; height: 1px; background: var(--orange); }
+    h1 { font-family: Manrope, sans-serif; font-size: clamp(58px, 8.4vw, 112px); line-height: .98; letter-spacing: -.085em; font-weight: 700; margin: 28px 0 24px; }
+    h1 .outline { color: transparent; -webkit-text-stroke: 1.5px var(--ink); }
+    .hero-copy { max-width: 540px; color: var(--muted); font-size: 16px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .button { display: inline-flex; align-items: center; gap: 14px; padding: 14px 19px; font-size: 13px; font-weight: 700; border: 1px solid var(--ink); transition: .25s; }
+    .button.primary { background: var(--orange); color: white; border-color: var(--orange); }
+    .button.primary:hover { background: var(--ink); border-color: var(--ink); }
+    .button.secondary:hover { background: var(--ink); color: white; }
+    .hero-aside { border-left: 1px solid var(--line); padding-left: 34px; padding-bottom: 5px; }
+    .availability { display: inline-flex; align-items: center; gap: 9px; font-size: 12px; margin-bottom: 34px; }
+    .availability:before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #5d8b55; box-shadow: 0 0 0 4px #5d8b5520; }
+    .aside-label { color: var(--muted); font-size: 11px; margin-bottom: 9px; }
+    .aside-value { font-family: Manrope, sans-serif; font-size: 22px; line-height: 1.3; font-weight: 700; letter-spacing: -.04em; }
+    .aside-block + .aside-block { margin-top: 28px; }
+    .hero-stamp { width: 100%; min-height: 145px; background: var(--green); margin-top: 35px; padding: 20px; display: flex; justify-content: space-between; align-items: flex-end; }
+    .stamp-big { font-family: Manrope, sans-serif; font-size: 56px; line-height: .9; letter-spacing: -.09em; font-weight: 800; }
+    .stamp-small { max-width: 100px; font-size: 11px; line-height: 1.4; text-align: right; }
+    section { padding: 92px 0; border-bottom: 1px solid var(--line); }
+    .section-head { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; margin-bottom: 48px; align-items: start; }
+    .section-number { color: var(--orange); font-size: 12px; }
+    .section-title { font-family: Manrope, sans-serif; font-size: clamp(35px, 5vw, 58px); line-height: 1.05; letter-spacing: -.07em; font-weight: 700; }
+    .section-intro { max-width: 570px; color: var(--muted); font-size: 15px; margin-top: 15px; }
+    .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+    .about-statement { font-family: Manrope, sans-serif; font-size: clamp(25px, 3vw, 38px); line-height: 1.25; letter-spacing: -.055em; font-weight: 600; }
+    .about-statement em { color: var(--orange); font-family: var(--serif); font-weight: 400; }
+    .about-detail { color: var(--muted); font-size: 15px; }
+    .about-detail p + p { margin-top: 17px; }
+    .facts { display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid var(--line); margin-top: 35px; padding-top: 18px; gap: 15px; }
+    .fact strong { display: block; font-family: Manrope, sans-serif; font-size: 18px; letter-spacing: -.04em; }
+    .fact span { color: var(--muted); font-size: 11px; }
+    .project-list { border-top: 1px solid var(--ink); }
+    .project { display: grid; grid-template-columns: 70px 1fr 1fr 30px; gap: 28px; padding: 31px 0; border-bottom: 1px solid var(--line); align-items: start; transition: padding .25s; }
+    .project:hover { padding-left: 12px; }
+    .project-index { color: var(--orange); font-size: 11px; padding-top: 7px; }
+    .project h3 { font-family: Manrope, sans-serif; font-size: clamp(22px, 2.7vw, 32px); letter-spacing: -.06em; line-height: 1.15; }
+    .project-kind { color: var(--muted); font-size: 11px; margin-top: 8px; }
+    .project-desc { color: var(--muted); font-size: 13px; max-width: 410px; }
+    .project-tech { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 13px; }
+    .tag { border: 1px solid var(--line); padding: 5px 8px; font-size: 9px; color: #55574f; letter-spacing: .04em; }
+    .project-arrow { font-size: 22px; color: var(--orange); transition: transform .2s; }
+    .project:hover .project-arrow { transform: translate(4px,-4px); }
+    .skills-layout { display: grid; grid-template-columns: 1fr 2fr; gap: 60px; }
+    .skills-note { color: var(--muted); font-size: 14px; max-width: 260px; }
+    .skill-row { display: grid; grid-template-columns: 180px 1fr; gap: 20px; padding: 19px 0; border-top: 1px solid var(--line); }
+    .skill-row:last-child { border-bottom: 1px solid var(--line); }
+    .skill-row h3 { font-family: Manrope, sans-serif; font-size: 14px; }
+    .skill-items { color: var(--muted); font-size: 14px; }
+    .experience-card { display: grid; grid-template-columns: 1fr 2fr; gap: 55px; padding: 35px 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--line); }
+    .exp-date { color: var(--orange); font-size: 11px; }
+    .exp-place { color: var(--muted); font-size: 12px; margin-top: 8px; }
+    .exp-title { font-family: Manrope, sans-serif; font-size: 28px; letter-spacing: -.06em; line-height: 1.2; }
+    .exp-company { color: var(--orange); font-size: 14px; margin: 7px 0 18px; font-weight: 700; }
+    .exp-details { color: var(--muted); font-size: 14px; }
+    .exp-details ul { padding-left: 18px; margin-top: 12px; }
+    .exp-details li { margin: 6px 0; }
+    .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .edu-item { background: var(--white); padding: 26px; border: 1px solid var(--line); min-height: 180px; display: flex; flex-direction: column; justify-content: space-between; }
+    .edu-item .mono { color: var(--orange); font-size: 10px; }
+    .edu-item h3 { font-family: Manrope, sans-serif; font-size: 23px; letter-spacing: -.05em; line-height: 1.2; margin: 18px 0 8px; }
+    .edu-item p { color: var(--muted); font-size: 13px; }
+    .edu-score { font-family: "DM Mono", monospace; font-size: 11px; margin-top: 15px; }
+    .cert-list { border-top: 1px solid var(--ink); }
+    .cert { display: grid; grid-template-columns: 1fr 160px; gap: 20px; padding: 19px 0; border-bottom: 1px solid var(--line); }
+    .cert h3 { font-family: Manrope, sans-serif; font-size: 16px; letter-spacing: -.03em; }
+    .cert p { color: var(--muted); font-size: 12px; margin-top: 4px; }
+    .cert-source { color: var(--orange); text-align: right; font: 11px "DM Mono", monospace; text-transform: uppercase; }
+    .contact { background: var(--ink); color: var(--paper); border-bottom: 0; }
+    .contact .section-number { color: #ff8b67; }
+    .contact .section-intro { color: #b7b7ae; }
+    .contact-grid { display: grid; grid-template-columns: 1.4fr .6fr; gap: 60px; align-items: end; }
+    .contact-title { font-family: Manrope, sans-serif; font-size: clamp(48px, 8vw, 92px); line-height: .98; letter-spacing: -.085em; margin-top: 25px; }
+    .contact-title span { color: var(--orange); font-family: var(--serif); font-style: italic; font-weight: 400; }
+    .contact-info { border-top: 1px solid #4a4b45; }
+    .contact-info a, .contact-info p { display: block; padding: 13px 0; border-bottom: 1px solid #4a4b45; font-size: 13px; color: #d4d2c9; overflow-wrap: anywhere; }
+    .contact-info a:hover { color: #ff8b67; }
+    footer { background: var(--ink); color: #999b92; padding: 20px 0; border-top: 1px solid #3c3d38; font-size: 11px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (max-width: 850px) {
+      .hero-grid, .about-layout, .skills-layout, .contact-grid { grid-template-columns: 1fr; gap: 38px; }
+      .hero-aside { border-left: 0; border-top: 1px solid var(--line); padding: 25px 0 0; }
+      .hero-stamp { max-width: 360px; }
+      .section-head { grid-template-columns: 1fr; gap: 12px; }
+      .project { grid-template-columns: 42px 1fr 25px; gap: 16px; }
+      .project-content { grid-column: 2; }
+      .project-desc { grid-column: 2; }
+      .project-arrow { grid-column: 3; grid-row: 1; }
+      .experience-card { grid-template-columns: 1fr; gap: 20px; }
+      .skill-row { grid-template-columns: 145px 1fr; }
+    }
+    @media (max-width: 620px) {
+      .wrap { width: 90%; }
+      .nav { min-height: 68px; }
+      .menu { display: block; }
+      .nav-cta { display: none; }
+      .navlinks { display: none; position: absolute; top: 68px; left: 0; right: 0; background: var(--paper); border-bottom: 1px solid var(--line); padding: 20px 5%; flex-direction: column; align-items: flex-start; gap: 15px; }
+      .navlinks.open { display: flex; }
+      .hero { padding: 72px 0 55px; }
+      h1 { font-size: clamp(53px, 15vw, 78px); }
+      .hero-copy { font-size: 14px; }
+      section { padding: 68px 0; }
+      .project { grid-template-columns: 32px 1fr 20px; gap: 12px; }
+      .project h3 { font-size: 22px; }
+      .skill-row { grid-template-columns: 1fr; gap: 6px; }
+      .edu-grid { grid-template-columns: 1fr; }
+      .cert { grid-template-columns: 1fr; gap: 7px; }
+      .cert-source { text-align: left; }
+      .facts { gap: 8px; }
+      .fact strong { font-size: 15px; }
+      .contact-title { font-size: 58px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a class="brand" href="#home">MEENU<span>.</span></a>
+      <button class="menu" id="menu" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <ul class="navlinks" id="navlinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#work">Selected work</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+      </ul>
+      <a class="nav-cta" href="#contact">LET'S TALK ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div class="reveal">
+          <div class="eyebrow">SOFTWARE ENGINEER · KERALA, INDIA</div>
+          <h1>Building<br><span class="outline">useful</span><br>software.</h1>
+          <p class="hero-copy">I'm Meenu V Nair — a software engineer focused on backend development, APIs and database-driven applications. I work primarily with .NET, C# and Python, turning practical problems into reliable software.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#work">Explore my work <span>↘</span></a>
+            <a class="button secondary" href="#" download>Download résumé ↓</a>
+          </div>
+        </div>
+        <aside class="hero-aside reveal">
+          <div class="availability">OPEN TO SOFTWARE DEVELOPMENT OPPORTUNITIES</div>
+          <div class="aside-block">
+            <div class="aside-label mono">CURRENT FOCUS</div>
+            <div class="aside-value">Backend engineering<br>& web applications</div>
+          </div>
+          <div class="aside-block">
+            <div class="aside-label mono">WORKING WITH</div>
+            <div class="aside-value">.NET / C#<br>Python / SQL</div>
+          </div>
+          <div class="hero-stamp">
+            <div class="stamp-big">MVN<span style="color:var(--orange)">.</span></div>
+            <div class="stamp-small">Curious mind.<br>Practical builder.</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="section-number mono">01 / ABOUT</div>
+          <div><h2 class="section-title">A little about<br>how I work.</h2></div>
+        </div>
+        <div class="about-layout reveal">
+          <p class="about-statement">I enjoy building software that makes everyday work <em>simpler,</em> faster and more dependable.</p>
+          <div class="about-detail">
+            <p>I am a software developer with a Master of Computer Applications degree and practical experience in backend application development. My primary technical focus is ASP.NET Core, C#, Python, SQL Server and REST API development.</p>
+            <p>At ScaleVel Technologies, I contribute to business application development, API integration, database operations, debugging and responsive frontend workflows.</p>
+            <p>My project work spans healthcare management, employee leave management, Python debugging tools and Django-based applications. I value readable code, thoughtful problem-solving and continuous learning.</p>
+            <div class="facts">
+              <div class="fact"><strong>.NET</strong><span>Backend</span></div>
+              <div class="fact"><strong>Python</strong><span>Development</span></div>
+              <div class="fact"><strong>SQL</strong><span>Data</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="section-number mono">02 / EXPERIENCE</div>
+          <div><h2 class="section-title">Where I contribute.</h2><p class="section-intro">Professional experience focused on developing and improving business applications.</p></div>
+        </div>
+        <article class="experience-card reveal">
+          <div>
+            <div class="exp-date mono">JULY 2026 — PRESENT</div>
+            <div class="exp-place">Technopark, Thiruvananthapuram</div>
+          </div>
+          <div>
+            <h3 class="exp-title">Software Engineer Trainee (Contract)</h3>
+            <div class="exp-company">ScaleVel Technologies</div>
+            <div class="exp-details">
+              Working on business application development using ASP.NET Core, C#, SQL Server and frontend technologies.
+              <ul>
+                <li>Develop and enhance business application modules using ASP.NET Core and C#.</li>
+                <li>Design and integrate RESTful API endpoints with request validation and structured data exchange.</li>
+                <li>Build SQL Server queries, stored procedures and relational data models.</li>
+                <li>Connect HTML, CSS, JavaScript and Bootstrap interfaces with backend services.</li>
+                <li>Debug application code, API responses and SQL queries; collaborate on implementation and testing.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="section-number mono">03 / SELECTED WORK</div>
+          <div><h2 class="section-title">Things I've<br>worked on.</h2><p class="section-intro">A selection of applications and developer tools built with a focus on useful features, clear workflows and maintainable code.</p></div>
+        </div>
+        <div class="project-list">
+          <article class="project reveal">
+            <div class="project-index">01</div>
+            <div class="project-content">
+              <h3>HelloDoctor.Care</h3>
+              <div class="project-kind mono">Healthcare · Appointment platform</div>
+            </div>
+            <div class="project-desc">A healthcare management platform for doctors, patients and administrators, with appointment scheduling, doctor approval, token-based queues, WhatsApp webhook notifications and online payments.
+              <div class="project-tech"><span class="tag">ASP.NET CORE MVC</span><span class="tag">C#</span><span class="tag">EF CORE</span><span class="tag">SQL SERVER</span><span class="tag">RAZORPAY</span></div>
+              <p class="mono" style="font-size:10px;color:var(--orange);margin-top:12px">Repository link to be added</p>
+            </div>
+            <span class="project-arrow">↗</span>
+          </article>
+          <article class="project reveal">
+            <div class="project-index">02</div>
+            <div class="project-content">
+              <h3>Employee Leave<br>Management System</h3>
+              <div class="project-kind mono">Enterprise · Workflow application</div>
+            </div>
+            <div class="project-desc">An employee application for records, leave requests and approval workflows, with role-based access, dashboards and an OpenAI-powered chatbot that retrieves employee-specific leave information from SQL Server.
+              <div class="project-tech"><span class="tag">C#</span><span class="tag">ASP.NET CORE</span><span class="tag">WEB API</span><span class="tag">EF CORE</span><span class="tag">OPENAI API</span></div>
+              <p class="mono" style="font-size:10px;color:var(--orange);margin-top:12px">Repository link to be added</p>
+            </div>
+            <span class="project-arrow">↗</span>
+          </article>
+          <article class="project reveal">
+            <div class="project-index">03</div>
+            <div class="project-content">
+              <h3>PyChronicle</h3>
+              <div class="project-kind mono">Developer tool · Python debugging</div>
+            </div>
+            <div class="project-desc">An AST-powered time-travel debugging tool that records program execution and lets developers inspect previous variable states.
+              <div class="project-tech"><span class="tag">PYTHON</span><span class="tag">AST</span><span class="tag">SQLITE</span><span class="tag">TEXTUAL</span><span class="tag">TYPER</span></div>
+              <p class="mono" style="font-size:10px;color:var(--orange);margin-top:12px">Repository link to be added</p>
+            </div>
+            <span class="project-arrow">↗</span>
+          </article>
+          <article class="project reveal">
+            <div class="project-index">04</div>
+            <div class="project-content">
+              <h3>College Website<br>with IMS</h3>
+              <div class="project-kind mono">Education · Management system</div>
+            </div>
+            <div class="project-desc">A Django-based college management application for students, faculty, courses and attendance, with role-based access and management dashboards.
+              <div class="project-tech"><span class="tag">PYTHON</span><span class="tag">DJANGO</span><span class="tag">BOOTSTRAP</span><span class="tag">REST API</span></div>
+              <a class="mono" style="display:inline-block;font-size:10px;color:var(--orange);margin-top:12px" href="https://github.com/Meenu-vnair/College-website-with-LMS" target="_blank" rel="noopener">VIEW REPOSITORY ↗</a>
+            </div>
+            <span class="project-arrow">↗</span>
+          </article>
+          <article class="project reveal">
+            <div class="project-index">05</div>
+            <div class="project-content">
+              <h3>E-Learning<br>Platform</h3>
+              <div class="project-kind mono">Education · Online learning</div>
+            </div>
+            <div class="project-desc">An online learning platform supporting course management, student enrollment, content delivery and learning progress, with separate Admin, Instructor and Student roles.
+              <div class="project-tech"><span class="tag">PYTHON</span><span class="tag">DJANGO</span><span class="tag">BOOTSTRAP</span><span class="tag">REST API</span></div>
+              <a class="mono" style="display:inline-block;font-size:10px;color:var(--orange);margin-top:12px" href="https://github.com/Meenu-vnair/E-Learning-Platform" target="_blank" rel="noopener">VIEW REPOSITORY ↗</a>
+            </div>
+            <span class="project-arrow">↗</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="section-number mono">04 / TOOLKIT</div>
+          <div><h2 class="section-title">Tools of<br>the trade.</h2><p class="section-intro">Technologies and concepts I use to build, connect and maintain applications.</p></div>
+        </div>
+        <div class="skills-layout reveal">
+          <p class="skills-note">A practical toolkit across backend development, web technologies, databases and developer workflows.</p>
+          <div>
+            <div class="skill-row"><h3>Languages</h3><div class="skill-items">C# · Python · C · PHP · JavaScript</div></div>
+            <div class="skill-row"><h3>Frameworks</h3><div class="skill-items">.NET · ASP.NET Core · Django · React · HTML5 · CSS3 · Bootstrap</div></div>
+            <div class="skill-row"><h3>Backend & APIs</h3><div class="skill-items">REST APIs · Webhooks · WhatsApp API Integration · OpenAI API</div></div>
+            <div class="skill-row"><h3>Databases</h3><div class="skill-items">Microsoft SQL Server · MySQL · MongoDB</div></div>
+            <div class="skill-row"><h3>Engineering</h3><div class="skill-items">OOP · Data Structures & Algorithms · Modular Architecture · Data Modelling · Structured Query Design</div></div>
+            <div class="skill-row"><h3>Tools & Cloud</h3><div class="skill-items">Git · GitHub · VS Code · Windows · AWS Basics · Azure Basics</div></div>
+            <div class="skill-row"><h3>AI & Analytics</h3><div class="skill-items">AI/ML Fundamentals · Generative AI · Data Manipulation · ChatGPT</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="section-number mono">05 / EDUCATION</div>
+          <div><h2 class="section-title">Learning that<br>built the base.</h2></div>
+        </div>
+        <div class="edu-grid reveal">
+          <article class="edu-item">
+            <div class="mono">POSTGRADUATE · 2024—2026</div>
+            <div><h3>Master of Computer Applications</h3><p>STAS KTM College</p><div class="edu-score">CGPA&nbsp; 8.1 / 10</div></div>
+          </article>
+          <article class="edu-item">
+            <div class="mono">UNDERGRADUATE · 2021—2024</div>
+            <div><h3>BSc Mathematics</h3><p>BVM HC College</p><div class="edu-score">CGPA&nbsp; 7.5 / 10</div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="section-number mono">06 / CONTINUOUS LEARNING</div>
+          <div><h2 class="section-title">Learning beyond<br>the classroom.</h2></div>
+        </div>
+        <div class="cert-list reveal">
+          <article class="cert"><div><h3>Tata iQ GenAI-Powered Data Analytics Job Simulation</h3><p>AI-assisted data analysis, predictive modelling concepts and responsible AI strategy.</p></div><div class="cert-source">Forage</div></article>
+          <article class="cert"><div><h3>Cyber Security Cadet — Ethical Hacking</h3><p>Cybersecurity fundamentals, ethical hacking principles and security practices.</p></div><div class="cert-source">Udemy</div></article>
+          <article class="cert"><div><h3>Crash Course on Python</h3><p>Python programming fundamentals, data structures and automation.</p></div><div class="cert-source">Google · Coursera</div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap contact-grid">
+        <div class="reveal">
+          <div class="section-number mono">07 / CONTACT</div>
+          <h2 class="contact-title">Have a good<br>project in <span>mind?</span><br>Let's talk.</h2>
+        </div>
+        <div class="contact-info reveal">
+          <a href="mailto:meenuvnairazhakathu@gmail.com">meenuvnairazhakathu@gmail.com ↗</a>
+          <a href="https://www.linkedin.com/in/meenu-v-nair-029775296/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a href="https://github.com/Meenu-vnair" target="_blank" rel="noopener">GitHub ↗</a>
+          <p>Kottayam, Kerala, India</p>
+          <a href="resume.pdf" download>Download résumé ↓</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>© 2026 Meenu V Nair</span>
+      <span class="footer-note">Designed with intention · Built with code</span>
+    </div>
+  </footer>
+
+  <script>
+    const menu = document.getElementById("menu");
+    const navlinks = document.getElementById("navlinks");
+    menu.addEventListener("click", () => {
+      const open = navlinks.classList.toggle("open");
+      menu.setAttribute("aria-expanded", String(open));
+      menu.textContent = open ? "×" : "☰";
+    });
+    navlinks.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+      navlinks.classList.remove("open");
+      menu.setAttribute("aria-expanded", "false");
+      menu.textContent = "☰";
+    }));
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
